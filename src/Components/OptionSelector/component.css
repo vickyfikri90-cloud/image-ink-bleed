@@ -1,0 +1,69 @@
+.option-selector__wrap {
+  position: relative;
+  overflow: visible;
+  z-index: 1;
+}
+
+.option-selector__wrap.is-menu-open {
+  z-index: 30;
+}
+
+.option-selector__menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 40;
+  max-height: 112px;
+  padding: 2px;
+  background: #000;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.option-selector__menu.is-open {
+  display: flex;
+  flex-direction: column;
+}
+
+.option-selector__option {
+  flex-shrink: 0;
+  width: 100%;
+  height: 24px;
+  min-height: 24px;
+  border: none;
+  background: transparent;
+  padding: 0 6px;
+  font: 500 11px/16px Inter, sans-serif;
+  letter-spacing: 0.055px;
+  color: #fff;
+  text-align: left;
+  border-radius: 5px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.option-selector__option:hover,
+.option-selector__option.is-active {
+  background: rgba(245, 245, 245, 0.18);
+}
+
+.field--save-default {
+  margin-bottom: 16px;
+}
+
+.field--save-default .download-btn {
+  margin-top: 0;
+}
+
+.field > .option-selector--nested {
+  width: auto;
+  padding: 0;
+  margin-bottom: 8px;
+}

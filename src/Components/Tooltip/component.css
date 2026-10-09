@@ -1,0 +1,65 @@
+.kit-tooltip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  max-width: 200px;
+  padding: 4px 8px;
+  background: #000;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+  font: 500 11px/16px Inter, sans-serif;
+  letter-spacing: 0.055px;
+  color: #fff;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.12s ease, visibility 0s linear 0.12s;
+}
+
+.kit-tooltip.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.12s ease;
+}
+
+.kit-tooltip::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 4px solid transparent;
+}
+
+.kit-tooltip[data-placement="top"]::after {
+  top: 100%;
+  left: var(--kit-tooltip-arrow, 50%);
+  margin-left: -4px;
+  border-top-color: #000;
+}
+
+.kit-tooltip[data-placement="bottom"]::after {
+  bottom: 100%;
+  left: var(--kit-tooltip-arrow, 50%);
+  margin-left: -4px;
+  border-bottom-color: #000;
+}
+
+.kit-tooltip[data-placement="left"]::after {
+  left: 100%;
+  top: var(--kit-tooltip-arrow, 50%);
+  margin-top: -4px;
+  border-left-color: #000;
+}
+
+.kit-tooltip[data-placement="right"]::after {
+  right: 100%;
+  top: var(--kit-tooltip-arrow, 50%);
+  margin-top: -4px;
+  border-right-color: #000;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kit-tooltip,
+  .kit-tooltip.is-open { transition: none; }
+}

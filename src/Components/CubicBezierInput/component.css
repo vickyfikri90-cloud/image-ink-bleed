@@ -1,0 +1,58 @@
+.cubic-bezier-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.cubic-bezier-editor {
+  width: 100%;
+  height: 200px;
+  flex-shrink: 0;
+  overflow: hidden;
+  touch-action: none;
+}
+
+.cubic-bezier-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.cubic-bezier-guide {
+  stroke: #000;
+  stroke-opacity: 0.4;
+  stroke-width: 2;
+}
+
+.cubic-bezier-curve {
+  fill: none;
+  stroke: #000;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.cubic-bezier-handle-line {
+  stroke: #4372FF;
+  stroke-width: 3;
+}
+
+.cubic-bezier-handle {
+  fill: #fff;
+  stroke: #4372FF;
+  stroke-width: 3;
+  cursor: grab;
+}
+
+.cubic-bezier-handle:focus {
+  outline: none;
+  stroke: #2952CC;
+}
+
+.cubic-bezier-handle.is-dragging {
+  cursor: grabbing;
+}
+
+.cubic-bezier-value-input input {
+  padding: 0 7px 0 0;
+}

@@ -1,0 +1,382 @@
+  <div class="cp-app cp-app--fullscreen">
+    <div class="cp-preview-area">
+      <div class="cp-preview" data-experiment-preview="image-ink-bleed">
+        <div class="ink-bleed">
+          <canvas class="ink-bleed__canvas"></canvas>
+          <img class="ink-bleed__fallback" alt="">
+        </div>
+        <button type="button" class="ink-bleed-restart" id="exp-image-ink-bleed-restart">Restart</button>
+        <p class="ink-bleed-notice" id="exp-image-ink-bleed-notice" hidden>WebGPU isn’t available in this browser, so the preview shows a plain fade. Try Chrome, Edge or Safari 26+.</p>
+      </div>
+    </div>
+
+    <aside class="panel">
+      <div class="field field--save-default">
+        <button type="button" class="download-btn" id="save-default-btn">Save Default</button>
+      </div>
+
+      <div data-experiment-panel="image-ink-bleed">
+      <div class="field image-upload" id="exp-image-ink-bleed-image-root">
+        <span class="field-label">Image</span>
+        <div class="image-upload__drop" role="button" tabindex="0" aria-label="Choose image">
+          <img class="image-upload__icon" src="" alt="" data-icon="upload">
+          <span class="image-upload__hint">Drop image or click</span>
+          <img class="image-upload__img" data-upload-image alt="">
+          <input type="file" class="upload-file-input" accept="image/*" tabindex="-1" aria-hidden="true">
+        </div>
+        <div class="input-wrap input-wrap--label image-upload__file">
+          <span class="image-upload__name" data-upload-name></span>
+          <span class="upload-meta" data-upload-meta></span>
+          <button type="button" class="upload-clear" data-upload-clear aria-label="Remove image" hidden><img src="" alt="" data-icon="close"></button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="exp-image-ink-bleed-alt">Alt text</label>
+        <div class="row">
+          <div class="input-wrap input-wrap--label">
+            <input type="text" id="exp-image-ink-bleed-alt" value="Michelangelo">
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="exp-image-ink-bleed-width">Max width</label>
+        <div class="row">
+          <div class="input-wrap">
+            <input type="text" id="exp-image-ink-bleed-width" value="720">
+            <div class="suffix-wrap"><span>px</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-divider">
+        <span class="panel-divider__line" role="separator"></span>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Ink</span>
+        <div id="exp-image-ink-bleed-ink-mode-root" class="option-selector option-selector--nested">
+          <div class="row">
+            <div class="input-wrap input-wrap--label option-selector__wrap">
+              <input type="text" class="option-selector__input" value="Original colors" autocomplete="off" spellcheck="false">
+              <div class="option-selector__menu" role="listbox"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="exp-image-ink-bleed-ink-color-root">
+        <div class="field">
+          <span class="field-label">Ink color</span>
+          <div class="row">
+            <div class="input-wrap color-wrap color-selector__wrap">
+              <button type="button" class="color-selector__trigger" data-color-trigger aria-haspopup="dialog" aria-expanded="false" aria-label="Open color picker"><span class="swatch" data-color-swatch></span></button>
+              <input type="text" data-color-hex value="111111" spellcheck="false" aria-label="Hex">
+              <div class="opacity-wrap">
+                <input type="text" data-color-opacity value="100" aria-label="Opacity">
+                <span class="opacity-suffix">%</span>
+              </div>
+              <div class="color-selector__popover" role="dialog" aria-label="Color picker">
+                <div class="color-selector__sv" data-color-sv tabindex="0" role="slider" aria-label="Saturation and brightness"><span class="color-selector__thumb"></span></div>
+                <div class="color-selector__hue" data-color-hue tabindex="0" role="slider" aria-label="Hue" aria-valuemin="0" aria-valuemax="360"><span class="color-selector__thumb"></span></div>
+                <div class="color-selector__alpha" data-color-alpha tabindex="0" role="slider" aria-label="Opacity" aria-valuemin="0" aria-valuemax="100"><span class="color-selector__alpha-fill"></span><span class="color-selector__thumb"></span></div>
+                <div class="color-selector__hsb">
+                  <div class="input-wrap"><span class="input-icon">H</span><input type="text" data-color-h inputmode="numeric" aria-label="Hue (0–360)"></div>
+                  <div class="input-wrap"><span class="input-icon">S</span><input type="text" data-color-s inputmode="numeric" aria-label="Saturation (0–100)"></div>
+                  <div class="input-wrap"><span class="input-icon">B</span><input type="text" data-color-b inputmode="numeric" aria-label="Brightness (0–100)"></div>
+                  <button type="button" class="color-selector__eyedropper" data-color-eyedropper aria-label="Pick color from screen" aria-pressed="false" data-tooltip="Pick color from screen"><img src="" alt=""></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Paper</span>
+        <div id="exp-image-ink-bleed-background-root" class="option-selector option-selector--nested">
+          <div class="row">
+            <div class="input-wrap input-wrap--label option-selector__wrap">
+              <input type="text" class="option-selector__input" value="Paper color" autocomplete="off" spellcheck="false">
+              <div class="option-selector__menu" role="listbox"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="exp-image-ink-bleed-paper-color-root">
+        <div class="field">
+          <span class="field-label">Paper color</span>
+          <div class="row">
+            <div class="input-wrap color-wrap color-selector__wrap">
+              <button type="button" class="color-selector__trigger" data-color-trigger aria-haspopup="dialog" aria-expanded="false" aria-label="Open color picker"><span class="swatch" data-color-swatch></span></button>
+              <input type="text" data-color-hex value="F4F2EE" spellcheck="false" aria-label="Hex">
+              <div class="opacity-wrap">
+                <input type="text" data-color-opacity value="100" aria-label="Opacity">
+                <span class="opacity-suffix">%</span>
+              </div>
+              <div class="color-selector__popover" role="dialog" aria-label="Color picker">
+                <div class="color-selector__sv" data-color-sv tabindex="0" role="slider" aria-label="Saturation and brightness"><span class="color-selector__thumb"></span></div>
+                <div class="color-selector__hue" data-color-hue tabindex="0" role="slider" aria-label="Hue" aria-valuemin="0" aria-valuemax="360"><span class="color-selector__thumb"></span></div>
+                <div class="color-selector__alpha" data-color-alpha tabindex="0" role="slider" aria-label="Opacity" aria-valuemin="0" aria-valuemax="100"><span class="color-selector__alpha-fill"></span><span class="color-selector__thumb"></span></div>
+                <div class="color-selector__hsb">
+                  <div class="input-wrap"><span class="input-icon">H</span><input type="text" data-color-h inputmode="numeric" aria-label="Hue (0–360)"></div>
+                  <div class="input-wrap"><span class="input-icon">S</span><input type="text" data-color-s inputmode="numeric" aria-label="Saturation (0–100)"></div>
+                  <div class="input-wrap"><span class="input-icon">B</span><input type="text" data-color-b inputmode="numeric" aria-label="Brightness (0–100)"></div>
+                  <button type="button" class="color-selector__eyedropper" data-color-eyedropper aria-label="Pick color from screen" aria-pressed="false" data-tooltip="Pick color from screen"><img src="" alt=""></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="exp-image-ink-bleed-threshold-root" class="slider-field">
+        <span class="slider-field__label">Ink threshold (%)</span>
+        <div class="slider-field__row">
+          <div class="slider-value-wrap">
+            <input type="text" class="slider-value-input" value="90" inputmode="numeric">
+          </div>
+          <div class="slider-track-wrap">
+            <div class="slider-track">
+              <div class="slider-fill"></div>
+              <button type="button" class="slider-thumb" aria-label="Ink threshold"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="exp-image-ink-bleed-grain-root" class="slider-field">
+        <span class="slider-field__label">Paper grain (%)</span>
+        <div class="slider-field__row">
+          <div class="slider-value-wrap">
+            <input type="text" class="slider-value-input" value="0" inputmode="numeric">
+          </div>
+          <div class="slider-track-wrap">
+            <div class="slider-track">
+              <div class="slider-fill"></div>
+              <button type="button" class="slider-thumb" aria-label="Paper grain"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-divider">
+        <span class="panel-divider__line" role="separator"></span>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Direction</span>
+        <div id="exp-image-ink-bleed-direction-root" class="option-selector option-selector--nested">
+          <div class="row">
+            <div class="input-wrap input-wrap--label option-selector__wrap">
+              <input type="text" class="option-selector__input" value="Left → Right" autocomplete="off" spellcheck="false">
+              <div class="option-selector__menu" role="listbox"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="exp-image-ink-bleed-sweep-root" class="slider-field">
+        <span class="slider-field__label">Sweep (%)</span>
+        <div class="slider-field__row">
+          <div class="slider-value-wrap">
+            <input type="text" class="slider-value-input" value="40" inputmode="numeric">
+          </div>
+          <div class="slider-track-wrap">
+            <div class="slider-track">
+              <div class="slider-fill"></div>
+              <button type="button" class="slider-thumb" aria-label="Sweep"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="exp-image-ink-bleed-spread-root" class="slider-field">
+        <span class="slider-field__label">Bleed spread (%)</span>
+        <div class="slider-field__row">
+          <div class="slider-value-wrap">
+            <input type="text" class="slider-value-input" value="50" inputmode="numeric">
+          </div>
+          <div class="slider-track-wrap">
+            <div class="slider-track">
+              <div class="slider-fill"></div>
+              <button type="button" class="slider-thumb" aria-label="Bleed spread"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="exp-image-ink-bleed-roughness-root" class="slider-field">
+        <span class="slider-field__label">Roughness (%)</span>
+        <div class="slider-field__row">
+          <div class="slider-value-wrap">
+            <input type="text" class="slider-value-input" value="50" inputmode="numeric">
+          </div>
+          <div class="slider-track-wrap">
+            <div class="slider-track">
+              <div class="slider-fill"></div>
+              <button type="button" class="slider-thumb" aria-label="Roughness"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="exp-image-ink-bleed-fiber-root" class="slider-field">
+        <span class="slider-field__label">Fibers (%)</span>
+        <div class="slider-field__row">
+          <div class="slider-value-wrap">
+            <input type="text" class="slider-value-input" value="50" inputmode="numeric">
+          </div>
+          <div class="slider-track-wrap">
+            <div class="slider-track">
+              <div class="slider-fill"></div>
+              <button type="button" class="slider-thumb" aria-label="Fibers"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="exp-image-ink-bleed-feather-root" class="slider-field">
+        <span class="slider-field__label">Edge softness (%)</span>
+        <div class="slider-field__row">
+          <div class="slider-value-wrap">
+            <input type="text" class="slider-value-input" value="15" inputmode="numeric">
+          </div>
+          <div class="slider-track-wrap">
+            <div class="slider-track">
+              <div class="slider-fill"></div>
+              <button type="button" class="slider-thumb" aria-label="Edge softness"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="exp-image-ink-bleed-ghost-root" class="slider-field">
+        <span class="slider-field__label">Wet ghost (%)</span>
+        <div class="slider-field__row">
+          <div class="slider-value-wrap">
+            <input type="text" class="slider-value-input" value="35" inputmode="numeric">
+          </div>
+          <div class="slider-track-wrap">
+            <div class="slider-track">
+              <div class="slider-fill"></div>
+              <button type="button" class="slider-thumb" aria-label="Wet ghost"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="exp-image-ink-bleed-noise-scale-root" class="slider-field">
+        <span class="slider-field__label">Noise scale</span>
+        <div class="slider-field__row">
+          <div class="slider-value-wrap">
+            <input type="text" class="slider-value-input" value="4" inputmode="numeric">
+          </div>
+          <div class="slider-track-wrap">
+            <div class="slider-track">
+              <div class="slider-fill"></div>
+              <button type="button" class="slider-thumb" aria-label="Noise scale"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="exp-image-ink-bleed-seed">Seed</label>
+        <div class="row">
+          <div class="input-wrap input-wrap--label">
+            <input type="text" id="exp-image-ink-bleed-seed" value="0">
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-divider">
+        <span class="panel-divider__line" role="separator"></span>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Duration / Delay</span>
+        <div class="row">
+          <div class="input-wrap">
+            <input type="text" id="exp-image-ink-bleed-duration" value="2400">
+            <div class="suffix-wrap"><span>ms</span></div>
+          </div>
+          <div class="input-wrap">
+            <input type="text" id="exp-image-ink-bleed-delay" value="0">
+            <div class="suffix-wrap"><span>ms</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Play</span>
+        <div id="exp-image-ink-bleed-trigger-root" class="option-selector option-selector--nested">
+          <div class="row">
+            <div class="input-wrap input-wrap--label option-selector__wrap">
+              <input type="text" class="option-selector__input" value="On load" autocomplete="off" spellcheck="false">
+              <div class="option-selector__menu" role="listbox"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="exp-image-ink-bleed-easing-root">
+      <div class="field cubic-bezier-field">
+        <span class="field-label">Easing</span>
+        <div class="cubic-bezier-editor" data-bezier-editor>
+          <svg class="cubic-bezier-svg" data-bezier-svg viewBox="0 0 208 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="208" height="200" rx="5" fill="#F5F5F5"/>
+            <line class="cubic-bezier-guide" x1="29" y1="25" x2="179" y2="25"/>
+            <line class="cubic-bezier-guide" x1="29" y1="175" x2="179" y2="175"/>
+            <path class="cubic-bezier-curve" data-bezier-curve></path>
+            <line class="cubic-bezier-handle-line" data-bezier-line1></line>
+            <line class="cubic-bezier-handle-line" data-bezier-line2></line>
+            <circle class="cubic-bezier-handle" data-bezier-p1 r="6" tabindex="0" role="slider" aria-label="First control point"></circle>
+            <circle class="cubic-bezier-handle" data-bezier-p2 r="6" tabindex="0" role="slider" aria-label="Second control point"></circle>
+          </svg>
+        </div>
+        <div class="input-wrap cubic-bezier-value-input">
+          <span class="input-icon"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxMCAxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEwIDEuNjY3NTlDMTAgMS41NTcwOCA5Ljk1NjEgMS40NTExIDkuODc3OTYgMS4zNzI5NkM5Ljc5OTgyIDEuMjk0ODIgOS42OTM4NCAxLjI1MDkyIDkuNTgzMzQgMS4yNTA5MkM4LjYyOTM4IDEuMjUwNTUgNy42OTQyIDEuNTE2IDYuODgyNyAyLjAxNzVDNi4wNzEyIDIuNTE5IDUuNDE1NTEgMy4yMzY3MSA0Ljk4OTE3IDQuMDkwMDlMNC4yNjUgNS41MzkyNkMzLjkwNzg5IDYuMjU0MTEgMy4zNTg2NCA2Ljg1NTMyIDIuNjc4ODkgNy4yNzU0MkMxLjk5OTEzIDcuNjk1NTIgMS4yMTU3NiA3LjkxNzg5IDAuNDE2NjY4IDcuOTE3NTlDMC4zMDYxNjEgNy45MTc1OSAwLjIwMDE4IDcuOTYxNDkgMC4xMjIwNCA4LjAzOTYzQzAuMDQzODk5NyA4LjExNzc3IDkuMjM0MTVlLTA3IDguMjIzNzUgOS4yMzQxNWUtMDcgOC4zMzQyNkM5LjIzNDE1ZS0wNyA4LjQ0NDc3IDAuMDQzODk5NyA4LjU1MDc1IDAuMTIyMDQgOC42Mjg4OUMwLjIwMDE4IDguNzA3MDMgMC4zMDYxNjEgOC43NTA5MyAwLjQxNjY2OCA4Ljc1MDkzQzEuMzcwNjIgOC43NTEzIDIuMzA1ODEgOC40ODU4NCAzLjExNzMgNy45ODQzNEMzLjkyODggNy40ODI4NSA0LjU4NDUgNi43NjUxNCA1LjAxMDgzIDUuOTExNzZMNS43MzUgNC40NjI1OUM2LjA5MjEyIDMuNzQ3NzMgNi42NDEzNiAzLjE0NjUzIDcuMzIxMTIgMi43MjY0M0M4LjAwMDg3IDIuMzA2MzMgOC43ODQyNCAyLjA4Mzk2IDkuNTgzMzQgMi4wODQyNkM5LjY5Mzg0IDIuMDg0MjYgOS43OTk4MiAyLjA0MDM2IDkuODc3OTYgMS45NjIyMkM5Ljk1NjEgMS44ODQwOCAxMCAxLjc3ODEgMTAgMS42Njc1OVpNNS44MzMzNCAxLjY2NzU5QzUuODMzMzQgMS41NTcwOCA1Ljc4OTQ0IDEuNDUxMSA1LjcxMTMgMS4zNzI5NkM1LjYzMzE2IDEuMjk0ODIgNS41MjcxOCAxLjI1MDkyIDUuNDE2NjcgMS4yNTA5MkgzLjI3OTE3QzMuMTc4MTEgMC44NTc5NyAyLjkzNzExIDAuNTE1NDA4IDIuNjAxNCAwLjI4NzUzNUMyLjI2NTY5IDAuMDU5NjYyNCAxLjg1ODM2IC0wLjAzNzg1MyAxLjQ1NTg1IDAuMDEzMjkxMkMxLjA1MzM1IDAuMDY0NDM1NSAwLjY4MzM0NyAwLjI2MDcyMyAwLjQxNTI5NiAwLjU2NTMxMkMwLjE0NzI0NCAwLjg2OTkwMSAtMC4wMDA0MjYwNzEgMS4yNjE4NSA5LjIzNDE1ZS0wNyAxLjY2NzU5QzAuMDAxMTU2ODYgMi4wNzI0MSAwLjE0OTYxNCAyLjQ2Mjk3IDAuNDE3NjUxIDIuNzY2MzVDMC42ODU2ODkgMy4wNjk3MyAxLjA1NDk4IDMuMjY1MTggMS40NTY1OCAzLjMxNjJDMS44NTgxNyAzLjM2NzIzIDIuMjY0NjEgMy4yNzAzNSAyLjYgMy4wNDM2NUMyLjkzNTM5IDIuODE2OTUgMy4xNzY4MSAyLjQ3NTkyIDMuMjc5MTcgMi4wODQyNkg1LjQxNjY3QzUuNTI3MTggMi4wODQyNiA1LjYzMzE2IDIuMDQwMzYgNS43MTEzIDEuOTYyMjJDNS43ODk0NCAxLjg4NDA4IDUuODMzMzQgMS43NzgxIDUuODMzMzQgMS42Njc1OVpNMi41IDEuNjY3NTlDMi41IDEuODg4NiAyLjQxMjIgMi4xMDA1NyAyLjI1NTkyIDIuMjU2ODVDMi4wOTk2NCAyLjQxMzEzIDEuODg3NjggMi41MDA5MiAxLjY2NjY3IDIuNTAwOTJDMS40NDU2NSAyLjUwMDkyIDEuMjMzNjkgMi40MTMxMyAxLjA3NzQxIDIuMjU2ODVDMC45MjExMzIgMi4xMDA1NyAwLjgzMzMzNCAxLjg4ODYgMC44MzMzMzQgMS42Njc1OUMwLjgzMzMzNCAxLjQ0NjU4IDAuOTIxMTMyIDEuMjM0NjIgMS4wNzc0MSAxLjA3ODM0QzEuMjMzNjkgMC45MjIwNTUgMS40NDU2NSAwLjgzNDI1NyAxLjY2NjY3IDAuODM0MjU3QzEuODg3NjggMC44MzQyNTcgMi4wOTk2NCAwLjkyMjA1NSAyLjI1NTkyIDEuMDc4MzRDMi40MTMyIDEuMjM0NjIgMi41IDEuNDQ2NTggMi41IDEuNjY3NTlaTTEwIDguMzM0MjZDMTAuMDAxMyA3LjkyODE1IDkuODU0MDQgNy41MzU1OCA5LjU4NjA2IDcuMjMwNDRDOS4zMTgwOCA2LjkyNTI5IDguOTQ3ODEgNi43Mjg2MSA4LjU0NDk0IDYuNjc3NDFDOC4xNDIwNyA2LjYyNjIgNy43MzQzNyA2LjcyNDAxIDcuMzk4NTggNi45NTI0MUM3LjA2Mjc4IDcuMTgwODIgNi44MjIwNCA3LjUyNDA4IDYuNzIxNjcgNy45MTc1OUg0LjU4MzMzQzQuNDcyODMgNy45MTc1OSA0LjM2Njg1IDcuOTYxNDkgNC4yODg3MSA4LjAzOTYzQzQuMjEwNTcgOC4xMTc3NyA0LjE2NjY3IDguMjIzNzUgNC4xNjY2NyA4LjMzNDI2QzQuMTY2NjcgOC40NDQ3NyA0LjIxMDU3IDguNTUwNzUgNC4yODg3MSA4LjYyODg5QzQuMzY2ODUgOC43MDcwMyA0LjQ3MjgzIDguNzUwOTMgNC41ODMzMyA4Ljc1MDkzSDYuNzIxNjdDNi44MjIwNCA5LjE0NDQ0IDcuMDYyNzggOS40ODc3IDcuMzk4NTggOS43MTYxQzcuNzM0MzcgOS45NDQ1MSA4LjE0MjA3IDEwLjA0MjMgOC41NDQ5NCA5Ljk5MTExQzguOTQ3ODEgOS45Mzk5MSA5LjMxODA4IDkuNzQzMjMgOS41ODYwNiA5LjQzODA4QzkuODU0MDQgOS4xMzI5NCAxMC4wMDEzIDguNzQwMzcgMTAgOC4zMzQyNlpNOS4xNjY2NyA4LjMzNDI2QzkuMTY2NjcgOC41NTUyNyA5LjA3ODg3IDguNzY3MjMgOC45MjI1OSA4LjkyMzUxQzguNzY2MzEgOS4wNzk3OSA4LjU1NDM1IDkuMTY3NTkgOC4zMzMzNCA5LjE2NzU5QzguMTEyMzIgOS4xNjc1OSA3LjkwMDM2IDkuMDc5NzkgNy43NDQwOCA4LjkyMzUxQzcuNTg3OCA4Ljc2NzIzIDcuNSA4LjU1NTI3IDcuNSA4LjMzNDI2QzcuNSA4LjExMzI1IDcuNTg3OCA3LjkwMTI4IDcuNzQ0MDggNy43NDVDNy45MDAzNiA3LjU4ODcyIDguMTEyMzIgNy41MDA5MyA4LjMzMzM0IDcuNTAwOTNDOC41NTQzNSA3LjUwMDkzIDguNzY2MzEgNy41ODg3MiA4LjkyMjU5IDcuNzQ1QzkuMDc4ODcgNy45MDEyOCA5LjE2NjY3IDguMTEzMjUgOS4xNjY2NyA4LjMzNDI2WiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC41Ii8+Cjwvc3ZnPgo=" alt=""></span>
+          <input type="text" data-bezier-text value="0.45, 0, 0.25, 1" spellcheck="false" autocomplete="off">
+        </div>
+      </div>
+      </div>
+
+      <div id="exp-image-ink-bleed-scrub-root" class="slider-field">
+        <span class="slider-field__label">Preview progress (%)</span>
+        <div class="slider-field__row">
+          <div class="slider-value-wrap">
+            <input type="text" class="slider-value-input" value="60" inputmode="numeric">
+          </div>
+          <div class="slider-track-wrap">
+            <div class="slider-track">
+              <div class="slider-fill"></div>
+              <button type="button" class="slider-thumb" aria-label="Preview progress"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="exp-image-ink-bleed-embed-root" class="field toggle-field">
+        <div class="toggle-stack">
+          <button type="button" class="toggle-row is-on" role="switch" aria-checked="true">
+            <span class="toggle-switch" aria-hidden="true">
+              <span class="toggle-switch__knob"></span>
+            </span>
+            <span class="toggle-row__label">Embed image in code</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="exp-image-ink-bleed-snippet-root">
+        <div class="field code-field">
+          <span class="field-label">Code</span>
+          <textarea class="snippet-output" data-snippet-output readonly spellcheck="false"></textarea>
+          <button type="button" class="download-btn" data-snippet-download>Download HTML</button>
+        </div>
+      </div>
+      </div>
+    </aside>
+  </div>
